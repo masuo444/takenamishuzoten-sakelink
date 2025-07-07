@@ -101,3 +101,6 @@ bower_components
 # Local development files
 config/local-*
 *.local.*
+
+# Netlify
+.netlify/

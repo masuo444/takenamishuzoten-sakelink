@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竹浪酒造店 | 燗酒専心 - 青森の地酒</title>
+    <meta name="description" content="青森県板柳町の竹浪酒造店。岩木山の伏流水と津軽平野の米で醸造する燗酒専心の地酒。AIさくらが24時間ご案内いたします。">
+    <meta name="keywords" content="竹浪酒造店, 青森, 板柳町, 日本酒, 燗酒, 岩木山, 津軽, 地酒, AIさくら">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobile-enhancements.css">
+    <link rel="icon" href="assets/images/favicon.ico">
+    
+    <!-- OGP Tags -->
+    <meta property="og:title" content="竹浪酒造店 | 燗酒専心 - 青森の地酒">
+    <meta property="og:description" content="青森県板柳町の竹浪酒造店。岩木山の伏流水と津軽平野の米で醸造する燗酒専心の地酒。">
+    <meta property="og:url" content="https://takenamishuzoten.com">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/takenami-og-image.jpg">
+    <meta property="og:site_name" content="竹浪酒造店">
+    <meta property="og:locale" content="ja_JP">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="竹浪酒造店 | 燗酒専心 - 青森の地酒">
+    <meta name="twitter:description" content="青森県板柳町の竹浪酒造店。岩木山の伏流水と津軽平野の米で醸造する燗酒専心の地酒。">
+    <meta name="twitter:image" content="assets/images/takenami-og-image.jpg">
+</head>
+<body>
+    <!-- Google Translate -->
+    <div id="google_translate_element"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <h1>竹浪酒造店</h1>
+            </div>
+            <ul>
+                <li><a href="#home">ホーム</a></li>
+                <li><a href="#company">酒蔵について</a></li>
+                <li><a href="#products">お酒</a></li>
+                <li><a href="#story">こだわり</a></li>
+                <li><a href="#ai-sakura">AIさくら</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">燗酒専心</h1>
+            <p class="hero-subtitle">岩木山の伏流水と津軽平野の米が織りなす、青森の地酒</p>
+            <div class="business-type-display">
+                <span id="businessTypeText">青森県板柳町の酒蔵</span>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="assets/images/takenami-hero.jpg" alt="竹浪酒造店" id="heroImage">
+        </div>
+    </section>
+
+    <!-- Company Section -->
+    <section id="company" class="company">
+        <div class="container">
+            <h2>酒蔵について</h2>
+            <div class="company-grid">
+                <div class="company-info">
+                    <h3 id="companyName">竹浪酒造店</h3>
+                    <p id="companyDescription">「燗酒専心」をモットーに、岩木山の伏流水と津軽平野の米を使用し、米洗いから麹造り、醪、上槽まで一貫した手仕事で酒本来の味を追求する青森の酒蔵です。</p>
+                    
+                    <div class="company-details">
+                        <div class="detail-item">
+                            <span class="label">所在地:</span>
+                            <span id="location">〒038-3662 青森県北津軽郡板柳町板柳土井113-1</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">電話:</span>
+                            <span id="phone">0172-88-8030</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">モットー:</span>
+                            <span id="motto">燗酒専心</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">特徴:</span>
+                            <span id="features">岩木山伏流水、津軽平野の米、手仕事醸造</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="company-image">
+                    <img src="assets/images/takenami-brewery.jpg" alt="竹浪酒造店の蔵" id="companyImage">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2>お酒</h2>
+            
+            <!-- Product Categories -->
+            <div class="product-categories">
+                <button class="category-btn active" data-category="all">全商品</button>
+                <button class="category-btn" data-category="premium">特選</button>
+                <button class="category-btn" data-category="classic">定番</button>
+                <button class="category-btn" data-category="limited">限定</button>
+            </div>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- 1. 七郎兵衛 特別純米酒 -->
+                <div class="product-card" data-category="classic">
+                    <div class="product-header" onclick="toggleProductDetails(this.parentElement)">
+                        <h3 class="product-name">七郎兵衛 特別純米酒</h3>
+                        <p class="product-type">特別純米酒</p>
+                        <p class="product-description">秋田酒こまち・精米歩合60%。やわらかな果実香と米の旨味が特徴の代表銘柄です。</p>
+                    </div>
+                    
+                    <button class="product-details-toggle" onclick="toggleProductDetails(this.parentElement)">
+                        詳細を見る <span class="toggle-icon">▼</span>
+                    </button>
+                    
+                    <div class="product-details-content">
+                        <div class="product-tabs">
+                            <button class="product-tab-btn active" data-tab="overview">概要</button>
+                            <button class="product-tab-btn" data-tab="details">詳細</button>
+                            <button class="product-tab-btn" data-tab="taste">味わい</button>
+                            <button class="product-tab-btn" data-tab="pairing">楽しみ方</button>
+                        </div>
+                        
+                        <div class="product-tab-content">
+                            <div class="tab-pane active" data-tab="overview">
+                                <p>秋田酒こまち・精米歩合60%。やわらかな果実香の後に、しっかりとした米の旨味が感じられます。</p>
+                                <p><strong>醸造のこだわり:</strong> 岩木山の伏流水を使用し、昔ながらの手仕事で丁寧に醸造。燗酒で真価を発揮する設計で造られています。</p>
+                            </div>
+                            <div class="tab-pane" data-tab="details">
+                                <p><strong>原料米:</strong> 秋田酒こまち（青森県産）</p>
+                                <p><strong>精米歩合:</strong> 60%</p>
+                                <p><strong>アルコール度数:</strong> 15度</p>
+                                <p><strong>日本酒度:</strong> +3（やや辛口）</p>
+                                <p><strong>酸度:</strong> 1.4</p>
+                            </div>
+                            <div class="tab-pane" data-tab="taste">
+                                <p><strong>香り:</strong> やわらかな果実香、穏やかで上品</p>
+                                <p><strong>味わい:</strong> しっかりとした米の旨味、バランス良好</p>
+                                <p><strong>燗酒:</strong> 40℃で米の旨味が開花</p>
+                            </div>
+                            <div class="tab-pane" data-tab="pairing">
+                                <p><strong>おすすめ温度:</strong> ぬる燗（40℃）〜上燗（45℃）</p>
+                                <p><strong>相性の良い料理:</strong> 津軽の郷土料理、焼き魚、煮物</p>
+                                <p><strong>楽しみ方:</strong> 家族との団らんで、ゆっくりと</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. 岩木正宗 立佞武多 -->
+                <div class="product-card" data-category="limited">
+                    <div class="product-header" onclick="toggleProductDetails(this.parentElement)">
+                        <h3 class="product-name">岩木正宗 立佞武多</h3>
+                        <p class="product-type">純米酒</p>
+                        <p class="product-description">青森の夏祭り「立佞武多」をイメージした祭り酒です。</p>
+                    </div>
+                    
+                    <button class="product-details-toggle" onclick="toggleProductDetails(this.parentElement)">
+                        詳細を見る <span class="toggle-icon">▼</span>
+                    </button>
+                    
+                    <div class="product-details-content">
+                        <div class="product-tabs">
+                            <button class="product-tab-btn active" data-tab="overview">概要</button>
+                            <button class="product-tab-btn" data-tab="details">詳細</button>
+                            <button class="product-tab-btn" data-tab="taste">味わい</button>
+                            <button class="product-tab-btn" data-tab="pairing">楽しみ方</button>
+                        </div>
+                        
+                        <div class="product-tab-content">
+                            <div class="tab-pane active" data-tab="overview">
+                                <p>青森の夏祭り「立佞武多」をイメージした特別純米酒。力強く男性的な香りと津軽の夏を表現した活気ある味わいが特徴です。</p>
+                                <p><strong>デザイン:</strong> 素戔嗚尊ラベルとかぐやラベルの2種類</p>
+                            </div>
+                            <div class="tab-pane" data-tab="details">
+                                <p><strong>原料米:</strong> 青森県産米</p>
+                                <p><strong>精米歩合:</strong> 60%</p>
+                                <p><strong>アルコール度数:</strong> 15度</p>
+                                <p><strong>特徴:</strong> 立佞武多祭限定ラベル</p>
+                            </div>
+                            <div class="tab-pane" data-tab="taste">
+                                <p><strong>香り:</strong> 力強く男性的な香り</p>
+                                <p><strong>味わい:</strong> 津軽の夏を表現した活気ある味わい</p>
+                                <p><strong>余韻:</strong> 祭り囃子のような余韻</p>
+                            </div>
+                            <div class="tab-pane" data-tab="pairing">
+                                <p><strong>おすすめ温度:</strong> 冷酒〜燗酒まで幅広く</p>
+                                <p><strong>相性の良い料理:</strong> 祭りの屋台料理、津軽の郷土料理</p>
+                                <p><strong>楽しみ方:</strong> 祭り気分で賑やかに</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. つがるJOMON 純米大吟醸 -->
+                <div class="product-card" data-category="premium">
+                    <div class="product-header" onclick="toggleProductDetails(this.parentElement)">
+                        <h3 class="product-name">つがるJOMON 純米大吟醸</h3>
+                        <p class="product-type">純米大吟醸酒</p>
+                        <p class="product-description">美山錦45%精米。縄文遺跡群世界遺産登録記念の最高級品です。</p>
+                    </div>
+                    
+                    <button class="product-details-toggle" onclick="toggleProductDetails(this.parentElement)">
+                        詳細を見る <span class="toggle-icon">▼</span>
+                    </button>
+                    
+                    <div class="product-details-content">
+                        <div class="product-tabs">
+                            <button class="product-tab-btn active" data-tab="overview">概要</button>
+                            <button class="product-tab-btn" data-tab="details">詳細</button>
+                            <button class="product-tab-btn" data-tab="taste">味わい</button>
+                            <button class="product-tab-btn" data-tab="pairing">楽しみ方</button>
+                        </div>
+                        
+                        <div class="product-tab-content">
+                            <div class="tab-pane active" data-tab="overview">
+                                <p>美山錦45%精米の最高級品。なめらかでフルーティー、ジューシーな甘味が特徴。つがるの縄文遺跡群世界遺産登録記念の特別な一本。</p>
+                                <p><strong>デザイン:</strong> 遮光器土偶デザインのラベル</p>
+                            </div>
+                            <div class="tab-pane" data-tab="details">
+                                <p><strong>原料米:</strong> 美山錦</p>
+                                <p><strong>精米歩合:</strong> 45%</p>
+                                <p><strong>アルコール度数:</strong> 16度</p>
+                                <p><strong>日本酒度:</strong> 0（中口）</p>
+                                <p><strong>特徴:</strong> 縄文ロマン最高級品</p>
+                            </div>
+                            <div class="tab-pane" data-tab="taste">
+                                <p><strong>香り:</strong> フルーティーで華やか、古代の花を思わせる</p>
+                                <p><strong>味わい:</strong> なめらかで上品な甘み、縄文の豊かさ</p>
+                                <p><strong>後味:</strong> ジューシーで美しい余韻</p>
+                            </div>
+                            <div class="tab-pane" data-tab="pairing">
+                                <p><strong>おすすめ温度:</strong> 冷酒（10℃）〜人肌燗（37℃）</p>
+                                <p><strong>相性の良い料理:</strong> 高級和食、山菜料理</p>
+                                <p><strong>楽しみ方:</strong> 縄文文化への敬意と共に</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. 津軽雪国 純米吟醸 -->
+                <div class="product-card" data-category="premium">
+                    <div class="product-header" onclick="toggleProductDetails(this.parentElement)">
+                        <h3 class="product-name">津軽雪国 純米吟醸</h3>
+                        <p class="product-type">純米吟醸酒</p>
+                        <p class="product-description">津軽の雪深い冬をイメージした、清涼感あふれる純米吟醸酒です。</p>
+                    </div>
+                    
+                    <button class="product-details-toggle" onclick="toggleProductDetails(this.parentElement)">
+                        詳細を見る <span class="toggle-icon">▼</span>
+                    </button>
+                    
+                    <div class="product-details-content">
+                        <div class="product-tabs">
+                            <button class="product-tab-btn active" data-tab="overview">概要</button>
+                            <button class="product-tab-btn" data-tab="details">詳細</button>
+                            <button class="product-tab-btn" data-tab="taste">味わい</button>
+                            <button class="product-tab-btn" data-tab="pairing">楽しみ方</button>
+                        </div>
+                        
+                        <div class="product-tab-content">
+                            <div class="tab-pane active" data-tab="overview">
+                                <p>津軽の雪深い冬をイメージして醸造された純米吟醸酒。清涼感あふれる味わいと上品な香りが特徴です。</p>
+                                <p><strong>コンセプト:</strong> 津軽の雪景色を表現した冬の限定酒</p>
+                            </div>
+                            <div class="tab-pane" data-tab="details">
+                                <p><strong>原料米:</strong> 青森県産華想い</p>
+                                <p><strong>精米歩合:</strong> 55%</p>
+                                <p><strong>アルコール度数:</strong> 15.5度</p>
+                                <p><strong>日本酒度:</strong> +2（やや辛口）</p>
+                                <p><strong>製造期間:</strong> 冬季限定醸造</p>
+                            </div>
+                            <div class="tab-pane" data-tab="taste">
+                                <p><strong>香り:</strong> 雪のように清らかで上品な香り</p>
+                                <p><strong>味わい:</strong> すっきりとした清涼感、雪解け水のような透明感</p>
+                                <p><strong>後味:</strong> 凛とした余韻、津軽の冬を感じる</p>
+                            </div>
+                            <div class="tab-pane" data-tab="pairing">
+                                <p><strong>おすすめ温度:</strong> 冷酒（8℃）〜人肌燗（37℃）</p>
+                                <p><strong>相性の良い料理:</strong> 白身魚、冬野菜の料理</p>
+                                <p><strong>楽しみ方:</strong> 雪見酒として、静寂な冬の夜に</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. 板柳の誉 本醸造 -->
+                <div class="product-card" data-category="classic">
+                    <div class="product-header" onclick="toggleProductDetails(this.parentElement)">
+                        <h3 class="product-name">板柳の誉 本醸造</h3>
+                        <p class="product-type">本醸造酒</p>
+                        <p class="product-description">地元板柳町の名を冠した、親しみやすい日常酒です。</p>
+                    </div>
+                    
+                    <button class="product-details-toggle" onclick="toggleProductDetails(this.parentElement)">
+                        詳細を見る <span class="toggle-icon">▼</span>
+                    </button>
+                    
+                    <div class="product-details-content">
+                        <div class="product-tabs">
+                            <button class="product-tab-btn active" data-tab="overview">概要</button>
+                            <button class="product-tab-btn" data-tab="details">詳細</button>
+                            <button class="product-tab-btn" data-tab="taste">味わい</button>
+                            <button class="product-tab-btn" data-tab="pairing">楽しみ方</button>
+                        </div>
+                        
+                        <div class="product-tab-content">
+                            <div class="tab-pane active" data-tab="overview">
+                                <p>地元板柳町の名を冠した親しみやすい本醸造酒。毎日の食事と共に楽しめる、竹浪酒造店の定番商品です。</p>
+                                <p><strong>特徴:</strong> 地元愛にあふれた、親しみやすい味わい</p>
+                            </div>
+                            <div class="tab-pane" data-tab="details">
+                                <p><strong>原料米:</strong> 青森県産米</p>
+                                <p><strong>精米歩合:</strong> 70%</p>
+                                <p><strong>アルコール度数:</strong> 15度</p>
+                                <p><strong>日本酒度:</strong> +4（辛口）</p>
+                                <p><strong>特徴:</strong> 地元板柳町の誇り</p>
+                            </div>
+                            <div class="tab-pane" data-tab="taste">
+                                <p><strong>香り:</strong> 穏やかで親しみやすい香り</p>
+                                <p><strong>味わい:</strong> すっきりとした辛口、飲み飽きしない</p>
+                                <p><strong>後味:</strong> さっぱりとしたキレ、食事を引き立てる</p>
+                            </div>
+                            <div class="tab-pane" data-tab="pairing">
+                                <p><strong>おすすめ温度:</strong> 冷酒〜熱燗まで幅広く</p>
+                                <p><strong>相性の良い料理:</strong> 日常の家庭料理、刺身、焼き魚</p>
+                                <p><strong>楽しみ方:</strong> 毎日の食事と共に、気取らずに</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section id="story" class="story">
+        <div class="container">
+            <h2>こだわり</h2>
+            <div class="story-content">
+                <h3>燗酒専心</h3>
+                <p id="storyText">竹浪酒造店は「燗酒専心」をモットーに、燗酒を本義として醸しております。岩木山の清らかな伏流水と津軽平野で育まれた良質な米を使用し、米洗いから麹造り、醪、上槽まで一貫した手仕事で酒本来の味を追求しています。</p>
+                
+                <h3>津軽の恵み</h3>
+                <p>青森県の雄大な自然に育まれた津軽平野の米と、岩木山から湧き出る伏流水。この地の恵みを活かし、代々受け継がれてきた技術で丁寧に醸造しています。</p>
+                
+                <h3>手仕事の心</h3>
+                <p>機械に頼らず、昔ながらの手仕事を大切にしています。職人の目と手で、一つ一つ丁寧に造り上げる日本酒は、まさに津軽の心を表現した逸品です。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Sakura Section -->
+    <section id="ai-sakura" class="ai-sakura-section">
+        <div class="container">
+            <h2>AIさくらに聞いてみよう</h2>
+            <div class="ai-sakura-intro">
+                <div class="ai-sakura-avatar">
+                    <img src="ai-sakura-icon.png" alt="AIさくら" class="sakura-icon">
+                    <div class="sakura-glow"></div>
+                </div>
+                <div class="ai-sakura-content">
+                    <h3>竹浪酒造店専門AIアシスタント</h3>
+                    <p>こんにちは！AIさくらです🌸 竹浪酒造店と燗酒について、何でもお気軽にお聞きください。12言語に対応した高品質な回答をお届けします。</p>
+                    <div class="ai-features">
+                        <div class="ai-feature">
+                            <span class="feature-icon">🍶</span>
+                            <span>燗酒専門知識</span>
+                        </div>
+                        <div class="ai-feature">
+                            <span class="feature-icon">🏔️</span>
+                            <span>津軽の地酒情報</span>
+                        </div>
+                        <div class="ai-feature">
+                            <span class="feature-icon">🌍</span>
+                            <span>12言語対応</span>
+                        </div>
+                        <div class="ai-feature">
+                            <span class="feature-icon">🎓</span>
+                            <span>高品質な回答</span>
+                        </div>
+                    </div>
+                    <button class="start-chat-btn" onclick="openAISakuraChat()">
+                        AIさくらとチャットを始める
+                        <span class="chat-icon">💬</span>
+                    </button>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Modern AI Sakura Chat System -->
+    <div id="chatInterface" class="modern-chat-interface">
+        <div class="chat-header">
+            <div class="chat-avatar-section">
+                <div class="avatar-container">
+                    <img src="ai-sakura-icon.png" alt="AIさくら" class="chat-avatar">
+                    <div class="status-indicator"></div>
+                </div>
+                <div class="chat-info">
+                    <h3>AIさくら</h3>
+                    <p class="status-text">オンライン • 竹浪酒造店</p>
+                </div>
+            </div>
+            <div class="chat-actions">
+                <button class="minimize-btn" id="minimizeChat">−</button>
+                <button class="close-btn" id="closeChat">×</button>
+            </div>
+        </div>
+        
+        <div id="chatMessages" class="chat-messages">
+            <div class="welcome-message">
+                <div class="avatar-mini">
+                    <img src="ai-sakura-icon.png" alt="AIさくら">
+                </div>
+                <div class="message-bubble ai-bubble">
+                    <p>こんにちは！AIさくらです🌸</p>
+                    <p>竹浪酒造店について何でもお聞きください！</p>
+                    <div class="message-time">今すぐ</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quick-actions">
+            <button class="quick-btn" data-message="竹浪酒造店について教えて">🏪 酒蔵について</button>
+            <button class="quick-btn" data-message="燗酒の楽しみ方を教えて">🍶 燗酒の楽しみ方</button>
+            <button class="quick-btn" data-message="おすすめのお酒を教えて">⭐ おすすめ商品</button>
+        </div>
+        
+        <div class="chat-input-area">
+            <div class="input-container">
+                <input type="text" id="messageInput" placeholder="メッセージを入力..." maxlength="500" autocomplete="off">
+                <button id="sendButton" class="send-btn">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="currentColor" d="M2,21L23,12L2,3V10L17,12L2,14V21Z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="input-footer">
+                <span class="language-indicator">🌐 日本語</span>
+                <span class="ai-indicator">🤖 GPT-4 + DeepL Ready</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stylish Floating Chat Button -->
+    <button id="chatButton" class="modern-chat-button">
+        <div class="button-content">
+            <div class="avatar-wrapper">
+                <img src="ai-sakura-icon.png" alt="AIさくら" class="button-avatar">
+                <div class="pulse-ring"></div>
+                <div class="notification-dot"></div>
+            </div>
+            <div class="button-text">
+                <span class="main-text">AIさくら</span>
+                <span class="sub-text">チャットする</span>
+            </div>
+        </div>
+        <div class="floating-particles">
+            <span class="particle">🌸</span>
+            <span class="particle">✨</span>
+            <span class="particle">🌸</span>
+        </div>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>竹浪酒造店</h3>
+                    <p>燗酒専心 - 青森の地酒</p>
+                </div>
+                <div class="footer-info">
+                    <h4>お問い合わせ</h4>
+                    <p id="contactPhone">0172-88-8030</p>
+                    <p id="contactAddress">〒038-3662 青森県北津軽郡板柳町板柳土井113-1</p>
+                    <p><a href="https://takenamishuzoten.com" target="_blank">公式サイト</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="config/ai-config.js"></script>
+    <script src="js/company-manager.js"></script>
+    <script src="js/modern-chatbot.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'ja',
+                includedLanguages: 'ja,en,zh-cn,zh-tw,ko,th,vi,fr,es,de,it,pt',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <!-- Takenami Shuzoten Initialization -->
+    <script>
+        // 竹浪酒造店専用の初期化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 企業情報を設定
+            window.companyData = {
+                company: {
+                    name: '竹浪酒造店',
+                    description: '「燗酒専心」をモットーに、岩木山の伏流水と津軽平野の米を使用し、米洗いから麹造り、醪、上槽まで一貫した手仕事で酒本来の味を追求する青森の酒蔵です。',
+                    location: '青森県北津軽郡板柳町',
+                    address: '〒038-3662 青森県北津軽郡板柳町板柳土井113-1',
+                    phone: '0172-88-8030',
+                    motto: '燗酒専心',
+                    features: ['岩木山伏流水', '津軽平野の米', '手仕事醸造', '燗酒専心']
+                },
+                businessType: 'sake',
+                specialties: ['燗酒', '手仕事醸造', '津軽の地酒'],
+                websiteUrl: 'https://takenamishuzoten.com'
+            };
+            
+            // AIさくら企業専用設定
+            if (window.aiConfig) {
+                window.aiConfig.company = {
+                    id: 'takenami_shuzoten',
+                    name: '竹浪酒造店',
+                    businessType: 'sake',
+                    specialties: ['燗酒', '手仕事醸造', '津軽の地酒'],
+                    allowedTopics: ['竹浪酒造店', '燗酒', '青森', '津軽', '板柳町', '岩木山', '日本酒'],
+                    blockedCompanies: [] // 他社情報は一切回答しない
+                };
+            }
+        });
+    </script>
+</body>
+</html>

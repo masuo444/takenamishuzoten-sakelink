@@ -105,6 +105,101 @@ body {
     letter-spacing: 0.1em;
 }
 
+/* Mobile Controls */
+.mobile-controls {
+    display: none;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Language Selector */
+.language-selector {
+    position: relative;
+}
+
+.language-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 8px 16px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.language-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.language-icon {
+    font-size: 16px;
+}
+
+.language-text {
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.language-arrow {
+    font-size: 10px;
+    transition: transform 0.3s ease;
+}
+
+.language-selector.active .language-arrow {
+    transform: rotate(180deg);
+}
+
+.language-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    z-index: 1000;
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    margin-top: 8px;
+}
+
+.language-selector.active .language-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.language-option {
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--takenami-dark);
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.language-option:hover {
+    background: var(--takenami-light);
+    color: var(--takenami-primary);
+}
+
+.language-option.active {
+    background: var(--takenami-accent);
+    color: white;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
@@ -1944,6 +2039,7 @@ section h2::after {
         justify-content: space-between;
         align-items: center;
         flex-wrap: nowrap;
+        gap: 10px;
     }
     
     .logo {
@@ -1966,6 +2062,27 @@ section h2::after {
     }
     
     /* Mobile Menu Toggle Button */
+    /* Show mobile controls */
+    .mobile-controls {
+        display: flex !important;
+    }
+    
+    .language-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+        border-radius: 20px;
+        min-width: 80px;
+    }
+    
+    .language-text {
+        font-size: 11px;
+    }
+    
+    .language-dropdown {
+        min-width: 160px;
+        right: 0;
+    }
+    
     .mobile-menu-toggle {
         display: flex;
         flex-direction: column;

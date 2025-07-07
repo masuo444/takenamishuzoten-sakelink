@@ -26,8 +26,8 @@
     <meta name="twitter:image" content="assets/images/takenami-og-image.jpg">
 </head>
 <body>
-    <!-- Google Translate -->
-    <div id="google_translate_element"></div>
+    <!-- Google Translate (Hidden) -->
+    <div id="google_translate_element" style="display: none;"></div>
     
     <!-- Header -->
     <header class="header">
@@ -45,11 +45,33 @@
                 <li><a href="#ai-sakura">AIさくら</a></li>
             </ul>
             
-            <!-- Mobile Hamburger Menu -->
-            <div class="mobile-menu-toggle" id="mobileMenuToggle">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+            <!-- Mobile Controls -->
+            <div class="mobile-controls">
+                <!-- Custom Language Selector -->
+                <div class="language-selector" id="languageSelector">
+                    <button class="language-btn" id="languageBtn">
+                        <span class="language-icon">🌐</span>
+                        <span class="language-text">日本語</span>
+                        <span class="language-arrow">▼</span>
+                    </button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <div class="language-option" data-lang="ja">🇯🇵 日本語</div>
+                        <div class="language-option" data-lang="en">🇺🇸 English</div>
+                        <div class="language-option" data-lang="zh-cn">🇨🇳 简体中文</div>
+                        <div class="language-option" data-lang="zh-tw">🇹🇼 繁體中文</div>
+                        <div class="language-option" data-lang="fr">🇫🇷 Français</div>
+                        <div class="language-option" data-lang="ko">🇰🇷 한국어</div>
+                        <div class="language-option" data-lang="es">🇪🇸 Español</div>
+                        <div class="language-option" data-lang="de">🇩🇪 Deutsch</div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Hamburger Menu -->
+                <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
             </div>
         </nav>
         
@@ -518,6 +540,7 @@
     <!-- Scripts -->
     <script src="config/ai-config.js"></script>
     <script src="js/company-manager.js"></script>
+    <script src="js/language-selector.js"></script>
     <script src="js/modern-chatbot.js"></script>
     <script src="js/main.js"></script>
     

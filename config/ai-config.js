@@ -4,7 +4,7 @@
 window.aiConfig = {
     // OpenAI Configuration
     openai: {
-        apiKey: process.env.OPENAI_API_KEY || 'YOUR_OPENAI_API_KEY_HERE',
+        apiKey: 'YOUR_OPENAI_API_KEY_HERE', // GitHub Pagesで動作させるにはAPIキーを直接入力する必要があります
         model: 'gpt-4',
         maxTokens: 1000,
         temperature: 0.7
@@ -12,7 +12,7 @@ window.aiConfig = {
     
     // DeepL Configuration
     deepl: {
-        apiKey: process.env.DEEPL_API_KEY || 'YOUR_DEEPL_API_KEY_HERE',
+        apiKey: 'YOUR_DEEPL_API_KEY_HERE', // GitHub Pagesで動作させるにはAPIキーを直接入力する必要があります
         apiUrl: 'https://api-free.deepl.com/v2/translate'
     },
     

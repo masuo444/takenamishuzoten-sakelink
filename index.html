@@ -35,14 +35,40 @@
             <div class="logo">
                 <h1>竹浪酒造店</h1>
             </div>
-            <ul>
+            
+            <!-- Desktop Menu -->
+            <ul class="nav-menu">
                 <li><a href="#home">ホーム</a></li>
                 <li><a href="#company">酒蔵について</a></li>
                 <li><a href="#products">お酒</a></li>
                 <li><a href="#story">こだわり</a></li>
                 <li><a href="#ai-sakura">AIさくら</a></li>
             </ul>
+            
+            <!-- Mobile Hamburger Menu -->
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
         </nav>
+        
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+            <div class="mobile-menu-content">
+                <div class="mobile-menu-header">
+                    <h2>竹浪酒造店</h2>
+                    <button class="mobile-menu-close" id="mobileMenuClose">&times;</button>
+                </div>
+                <ul class="mobile-menu-list">
+                    <li><a href="#home" class="mobile-menu-link">🏠 ホーム</a></li>
+                    <li><a href="#company" class="mobile-menu-link">🏪 酒蔵について</a></li>
+                    <li><a href="#products" class="mobile-menu-link">🍶 お酒</a></li>
+                    <li><a href="#story" class="mobile-menu-link">💫 こだわり</a></li>
+                    <li><a href="#ai-sakura" class="mobile-menu-link">🌸 AIさくら</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
 
     <!-- Hero Section -->
@@ -387,7 +413,7 @@
                             <span>高品質な回答</span>
                         </div>
                     </div>
-                    <button class="start-chat-btn" onclick="openAISakuraChat()">
+                    <button class="start-chat-btn" onclick="openAISakuraChat()" id="mainChatButton">
                         AIさくらとチャットを始める
                         <span class="chat-icon">💬</span>
                     </button>

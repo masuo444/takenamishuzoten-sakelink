@@ -265,6 +265,9 @@ class TakenamiSAKElink {
         // レスポンシブナビゲーション
         this.setupResponsiveNav();
         
+        // モバイルハンバーガーメニュー
+        this.setupMobileMenu();
+        
         // 言語切替
         this.setupLanguageSwitcher();
         
@@ -279,6 +282,9 @@ class TakenamiSAKElink {
         
         // AIサクラセクション機能
         this.setupAISakuraSection();
+        
+        // チャットボタンスクロール追従
+        this.setupChatButtonScrollBehavior();
     }
     
     /**
@@ -313,6 +319,72 @@ class TakenamiSAKElink {
             navToggle.addEventListener('click', () => {
                 nav.classList.toggle('active');
             });
+        }
+    }
+    
+    /**
+     * モバイルハンバーガーメニュー設定
+     */
+    setupMobileMenu() {
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+        
+        if (!mobileMenuToggle || !mobileMenuOverlay || !mobileMenuClose) {
+            console.warn('Mobile menu elements not found');
+            return;
+        }
+        
+        // ハンバーガーメニューボタンクリック
+        mobileMenuToggle.addEventListener('click', () => {
+            this.toggleMobileMenu(true);
+        });
+        
+        // メニュー閉じるボタンクリック
+        mobileMenuClose.addEventListener('click', () => {
+            this.toggleMobileMenu(false);
+        });
+        
+        // オーバーレイクリックで閉じる
+        mobileMenuOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileMenuOverlay) {
+                this.toggleMobileMenu(false);
+            }
+        });
+        
+        // メニューリンククリックで閉じる
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                this.toggleMobileMenu(false);
+            });
+        });
+        
+        // ESCキーで閉じる
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenuOverlay.classList.contains('active')) {
+                this.toggleMobileMenu(false);
+            }
+        });
+        
+        console.log('Mobile hamburger menu initialized');
+    }
+    
+    /**
+     * モバイルメニューの開閉
+     */
+    toggleMobileMenu(open) {
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        
+        if (open) {
+            mobileMenuToggle.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // スクロール無効化
+        } else {
+            mobileMenuToggle.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // スクロール復活
         }
     }
     
@@ -518,8 +590,12 @@ class TakenamiSAKElink {
     setupAISakuraSection() {
         // AIサクラチャット開始関数
         window.openAISakuraChat = () => {
-            if (window.aiChatbot) {
-                window.aiChatbot.openChat();
+            console.log('openAISakuraChat called');
+            
+            // modernChatbot インスタンスを確認
+            if (window.modernChatbot) {
+                console.log('modernChatbot found, opening chat...');
+                window.modernChatbot.openChat();
                 
                 // セクションからチャットエリアにスムーズスクロール
                 setTimeout(() => {
@@ -531,17 +607,45 @@ class TakenamiSAKElink {
                         });
                     }
                 }, 300);
+            } else if (window.aiChatbot) {
+                // フォールバック: 古い名前での確認
+                console.log('aiChatbot found, opening chat...');
+                window.aiChatbot.openChat();
             } else {
-                console.error('AI Chatbot not initialized');
-                this.showErrorMessage('AIチャットボットの初期化に失敗しました。');
+                console.error('No chatbot instance found');
+                console.log('Available instances:', {
+                    modernChatbot: !!window.modernChatbot,
+                    aiChatbot: !!window.aiChatbot,
+                    aiConfig: !!window.aiConfig
+                });
+                
+                // エラーメッセージを表示
+                const errorDiv = document.createElement('div');
+                errorDiv.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: #ff4444;
+                    color: white;
+                    padding: 15px 20px;
+                    border-radius: 8px;
+                    z-index: 10000;
+                    font-size: 14px;
+                `;
+                errorDiv.textContent = 'チャットボットの初期化に失敗しました。ページを再読み込みしてください。';
+                document.body.appendChild(errorDiv);
+                
+                setTimeout(() => errorDiv.remove(), 5000);
             }
         };
         
         // 例示質問関数
         window.askExample = (question) => {
-            if (window.aiChatbot) {
+            console.log('askExample called with:', question);
+            
+            if (window.modernChatbot) {
                 // チャットを開く
-                window.aiChatbot.openChat();
+                window.modernChatbot.openChat();
                 
                 // 質問を入力欄に設定
                 setTimeout(() => {
@@ -552,17 +656,104 @@ class TakenamiSAKElink {
                         
                         // 自動送信
                         setTimeout(() => {
+                            window.modernChatbot.sendMessage();
+                        }, 500);
+                    }
+                }, 300);
+            } else if (window.aiChatbot) {
+                // フォールバック
+                window.aiChatbot.openChat();
+                setTimeout(() => {
+                    const messageInput = document.getElementById('messageInput');
+                    if (messageInput) {
+                        messageInput.value = question;
+                        messageInput.focus();
+                        setTimeout(() => {
                             window.aiChatbot.sendMessage();
                         }, 500);
                     }
                 }, 300);
             } else {
-                console.error('AI Chatbot not initialized');
-                this.showErrorMessage('AIチャットボットの初期化に失敗しました。');
+                console.error('No chatbot instance found');
             }
         };
         
         console.log('AI Sakura section initialized');
+        
+        // フォールバック: ボタンに直接イベントリスナーも追加
+        const mainChatButton = document.getElementById('mainChatButton');
+        if (mainChatButton) {
+            mainChatButton.addEventListener('click', function(e) {
+                console.log('Main chat button clicked (event listener)');
+                // onclickが動作しない場合のフォールバック
+                if (typeof window.openAISakuraChat === 'function') {
+                    window.openAISakuraChat();
+                } else {
+                    console.error('openAISakuraChat function not found');
+                }
+            });
+            console.log('Main chat button event listener added');
+        }
+    }
+    
+    /**
+     * チャットボタンスクロール追従設定
+     */
+    setupChatButtonScrollBehavior() {
+        const chatButton = document.getElementById('chatButton');
+        if (!chatButton) return;
+        
+        let lastScrollY = window.scrollY;
+        let isScrolling = false;
+        
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const footerHeight = 100; // フッターのチャットボタン用スペース
+            
+            // フッター付近にいるかチェック
+            const isNearFooter = (currentScrollY + windowHeight) >= (documentHeight - footerHeight);
+            
+            // スクロール方向を検出
+            const isScrollingDown = currentScrollY > lastScrollY;
+            
+            if (isNearFooter) {
+                // フッター付近では少し控えめに表示
+                chatButton.classList.add('hide-on-bottom');
+            } else {
+                chatButton.classList.remove('hide-on-bottom');
+            }
+            
+            // スクロール時にチャットボタンを一時的に小さくする
+            if (!isScrolling) {
+                chatButton.style.transform = 'scale(0.9)';
+                isScrolling = true;
+                
+                // スクロール停止時に元のサイズに戻す
+                clearTimeout(this.scrollTimeout);
+                this.scrollTimeout = setTimeout(() => {
+                    chatButton.style.transform = '';
+                    isScrolling = false;
+                }, 150);
+            }
+            
+            lastScrollY = currentScrollY;
+        };
+        
+        // スクロールイベントをスロットル
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(handleScroll);
+                ticking = true;
+                setTimeout(() => {
+                    ticking = false;
+                }, 16); // 60fps相当
+            }
+        });
+        
+        console.log('Chat button scroll behavior initialized');
     }
     
     /**
